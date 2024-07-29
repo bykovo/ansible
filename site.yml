@@ -1,7 +1,15 @@
 ---
-- hosts: web_servers
-  become: true
+- name: Update and upgrade apt packages
+  hosts: all
+
   tasks:
-    - name: Print OS info
-      ansible.builtin.package:
-        name: apache2
+    - name: Update packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Upgrade packages with apt
+      when: ansible_pkg_mgr == 'apt'
+      ansible.builtin.apt:
+        upgrade: dist
+        
