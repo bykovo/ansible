@@ -5,14 +5,11 @@
 
   tasks:
     - name: Update packages with apt
-      when: ansible_pkg_mgr == 'apt'
-      ansible.builtin.apt:
+      apt:
         update_cache: true
 
     - name: Upgrade packages with apt
-      when: ansible_pkg_mgr == 'apt'
-      ansible.builtin.apt:
+      apt:
         upgrade: dist
-        - name: Upgrade the OS (apt-get dist-upgrade)
-  ansible.builtin.apt:
-    upgrade: dist
+        autoremove: true
+        autoclean: true
