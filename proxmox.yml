@@ -7,7 +7,7 @@
     - name: Update packages with apt
       apt:
         update_cache: true
-        force_apt_get: yes
+        #force_apt_get: yes
         cache_valid_time: 3600
 
     - name: Upgrade packages with apt
