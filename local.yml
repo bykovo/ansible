@@ -1,6 +1,6 @@
 ---
 - name: Update and upgrade apt packages
-  hosts: loalhost
+  hosts: localhost
   gather_facts: no
   become: true
 
